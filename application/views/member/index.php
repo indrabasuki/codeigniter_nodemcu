@@ -55,8 +55,8 @@
 								<td><?= $item->id_card ?></td>
 								<td><?= $item->name ?></td>
 								<td><?= $item->telepon ?></td>
-								<td><?= $item->kelas_id ?></td>
 								<td><?= $item->address ?></td>
+								<td><?= $item->kelas_id ?></td>
 								<td><?= $item->created_at ?></td>
 
 								<td class="text-center">

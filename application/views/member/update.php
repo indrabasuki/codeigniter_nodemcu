@@ -21,7 +21,7 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
-						<label for="">ID Anngota</label>
+						<label for="">ID Anggota</label>
 						<input type="text" name="id_member" value="<?= $member->id_member ?>" class="form-control" readonly>
 						<span class="text-danger">ID Anggota Otomatis di generate oleh sistem</span>
 					</div>
@@ -79,7 +79,7 @@
 						<select id="id_kelas" name="id_kelas" class="form-control" placeholder="Alamat" required>
 							<option value="" disabled>-- Pilih Kelas --</option>
 							<?php foreach ($kelas as $item) : ?>
-								<option value="<?= $item->id_kelas ?>"><?= $item->name ?></option>
+								<option value="<?= $item->kelas_id ?>"><?= $item->name ?></option>
 							<?php endforeach; ?>
 						</select>
 					</div>

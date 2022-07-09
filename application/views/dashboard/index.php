@@ -7,7 +7,7 @@
 						<div class="page-header-icon"><i data-feather="home"></i></div>
 						Dashboard
 					</h1>
-					<div class="page-header-subtitle">selamat datang , <?= $this->session->userdata('name') ?></div>
+					<div class="page-header-subtitle">Selamat datang , <?= $this->session->userdata('name') ?></div>
 				</div>
 
 			</div>
