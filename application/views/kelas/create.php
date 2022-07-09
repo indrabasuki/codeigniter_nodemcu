@@ -23,6 +23,7 @@
 					<div class="form-group">
 						<label for="">Nama Kelas</label>
 						<input type="text" name="nama" class="form-control" placeholder="Nama Kelas" required>
+						<?= form_error('name') ?>
 					</div>
 				</div>
 			</div>
@@ -31,6 +32,8 @@
 					<div class="form-group">
 						<label for="">Keterangan</label>
 						<textarea name="description" id="" cols="30" rows="3" class="form-control"></textarea>
+						<?= form_error('description') ?>
+
 					</div>
 				</div>
 			</div>

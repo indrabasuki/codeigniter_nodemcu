@@ -11,7 +11,7 @@ class User_model extends CI_Model
 {
 
 	protected $table = 'user';
-	protected $primary_key='id';
+	protected $primary_key = 'id';
 
 	public function __construct()
 	{
@@ -25,10 +25,10 @@ class User_model extends CI_Model
 
 	public function create($data)
 	{
-		return $this->db->insert($this->table,$data);
+		return $this->db->insert($this->table, $data);
 	}
 
-	public function update($data,$id)
+	public function update($data, $id)
 	{
 		$this->db->where($this->primary_key, $id);
 		$this->db->update($this->table, $data);
@@ -36,15 +36,14 @@ class User_model extends CI_Model
 
 	public function getById($id)
 	{
-		return $this->db->get_where($this->table,[$this->primary_key=>$id]);
+		return $this->db->get_where($this->table, [$this->primary_key => $id]);
 	}
 
 	public function delete($id)
 	{
 		$this->db->where($this->primary_key, $id);
-		$this->db->delete($this->table, $data);
+		$this->db->delete($this->table);
 	}
-
 }
 
 /* End of file: User_model.php */

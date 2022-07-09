@@ -17,7 +17,7 @@
 <div class="container mt-n10">
 
 
-	<!-- Example DataTable for Dashboard Demo-->
+	<?= $this->session->flashdata('message'); ?>
 	<div class="card mb-4">
 		<div class="card-header">
 			<div class="row">
@@ -64,9 +64,9 @@
 									<td><span class="badge badge-warning">Manager</span></td>
 								<?php endif; ?>
 								<td class="text-center">
-									<a href="" class="btn btn-sm btn-secondary"><i class="fas fa-eye"></i></a>
-									<a href="" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
-									<a href="" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+									<a href="<?= base_url('user/detail/') . $item->id ?>" class="btn btn-sm btn-secondary"><i class="fas fa-eye"></i></a>
+									<a href="<?= base_url('user/edit/') . $item->id ?>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
+									<a onclick="confirm('Apakah anda ingin hapus data?');" href="<?= base_url('user/delete/') . $item->id ?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
 								</td>
 							</tr>
 						<?php endforeach; ?>
