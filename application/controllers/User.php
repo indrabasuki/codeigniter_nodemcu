@@ -31,6 +31,7 @@ class User extends CI_Controller
 	{
 		$this->template->app('user/edit', 'Edit Data User');
 	}
+
 	public function detail($id)
 	{
 		$this->template->app('user/detail', 'Detail Data User');

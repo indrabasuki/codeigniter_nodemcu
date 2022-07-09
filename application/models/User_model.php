@@ -11,6 +11,7 @@ class User_model extends CI_Model
 {
 
 	protected $table = 'user';
+	protected $primary_key='id';
 
 	public function __construct()
 	{
@@ -22,7 +23,27 @@ class User_model extends CI_Model
 		return $this->db->get($this->table);
 	}
 
-	# code...
+	public function create($data)
+	{
+		return $this->db->insert($this->table,$data);
+	}
+
+	public function update($data,$id)
+	{
+		$this->db->where($this->primary_key, $id);
+		$this->db->update($this->table, $data);
+	}
+
+	public function getById($id)
+	{
+		return $this->db->get_where($this->table,[$this->primary_key=>$id]);
+	}
+
+	public function delete($id)
+	{
+		$this->db->where($this->primary_key, $id);
+		$this->db->delete($this->table, $data);
+	}
 
 }
 

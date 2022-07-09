@@ -25,12 +25,17 @@ class Kelas extends CI_Controller
 
 	public function create()
 	{
-		# code...
+		$this->template->app('kelas/create', 'Tambah Data Kelas');
 	}
 
 	public function edit()
 	{
-		# code...
+		$this->template->app('kelas/update', 'Data Kelas');
+	}
+
+	public function detail($id)
+	{
+		$this->template->app('kelas/detail', 'Detail Data Kelas');
 	}
 
 	public function delete()

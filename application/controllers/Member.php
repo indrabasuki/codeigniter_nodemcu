@@ -24,12 +24,17 @@ class Member extends CI_Controller
 
 	public function create()
 	{
-		# code...
+		$this->template->app('member/create', 'Tambah Data Anggota');
 	}
 
 	public function edit()
 	{
-		# code...
+		$this->template->app('member/update', 'Data Anggota');
+	}
+
+	public function detail($id)
+	{
+		$this->template->app('member/detail', 'Detail Data Member');
 	}
 
 	public function delete()

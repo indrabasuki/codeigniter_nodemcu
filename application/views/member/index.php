@@ -5,7 +5,7 @@
 				<div class="col-auto mt-4">
 					<h1 class="page-header-title">
 						<div class="page-header-icon"><i data-feather="figma"></i></div>
-						Data Kelas
+						Data Anggota
 					</h1>
 				</div>
 
@@ -32,6 +32,7 @@
 				<table class="table table-bordered table-hover" id="data_member" width="100%" cellspacing="0">
 					<thead>
 						<tr>
+							<th>#</th>
 							<th>ID Anggota</th>
 							<th>ID Card</th>
 							<th>Nama Anggota</th>
@@ -39,23 +40,28 @@
 							<th>Alamat</th>
 							<th>Kelas</th>
 							<th>Terdaftar</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 
 					<tbody>
 						<?php
 						$no = 1;
-						foreach ($kelas as $item) : ?>
+						foreach ($member as $item) : ?>
 							<tr>
 								<td><?= $no++ ?></td>
+								<td><?= $item->id_member ?></td>
+								<td><?= $item->id_card ?></td>
 								<td><?= $item->name ?></td>
-								<td><?= $item->description ?></td>
-								<td><?= $item->name ?></td>
+								<td><?= $item->telepon ?></td>
+								<td><?= $item->kelas_id ?></td>
+								<td><?= $item->address ?></td>
+								<td><?= $item->created_at ?></td>
 
 								<td class="text-center">
-									<a href="<?= base_url('kelas/detail/') . $item->id_kelas ?>" class="btn btn-sm btn-secondary"><i class="fas fa-eye"></i></a>
-									<a href="<?= base_url('kelas/edit/') . $item->id_kelas ?>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
-									<a href="<?= base_url('kelas/delete/') . $item->id_kelas ?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+									<a href="<?= base_url('member/detail/') . $item->id_member ?>" class="btn btn-sm btn-secondary"><i class="fas fa-eye"></i></a>
+									<a href="<?= base_url('member/edit/') . $item->member ?>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
+									<a href="<?= base_url('member/delete/') . $item->id_member ?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
 								</td>
 							</tr>
 						<?php endforeach; ?>
