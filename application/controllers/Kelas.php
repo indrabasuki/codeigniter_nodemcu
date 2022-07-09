@@ -14,6 +14,7 @@ class Kelas extends CI_Controller
 		parent::__construct();
 		is_logged_in();
 		$this->load->model('Kelas_model', 'kelas');
+		$this->load->library('form_validation');
 	}
 
 	public function index()
@@ -25,22 +26,55 @@ class Kelas extends CI_Controller
 
 	public function create()
 	{
-		$this->template->app('kelas/create', 'Tambah Data Kelas');
+		$this->form_validation->set_rules('name', 'Name', 'required|trim');
+		$this->form_validation->set_rules('description', 'Email', 'required|trim');
+
+		if ($this->form_validation->run() == false) {
+			$this->template->app('kelas/create', 'Tambah Data Kelas');
+		} else {
+			$data = [
+				'name' 			=> htmlspecialchars($this->input->post('name', true)),
+				'description' 	=> htmlspecialchars($this->input->post('description', true)),
+				'created_at' 	=> date('Y-m-d'),
+			];
+			$this->kelas->create($data);
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil ditambahkan</div>');
+			redirect('kelas');
+		}
 	}
 
-	public function edit()
+	public function edit($id)
 	{
-		$this->template->app('kelas/update', 'Data Kelas');
+		$data['kelas'] = $this->kelas->getById($id)->row();
+
+		$this->template->app('kelas/update', 'Data Kelas', $data);
+	}
+
+	public function update()
+	{
+		$data = [
+			'name' 			=> htmlspecialchars($this->input->post('name', true)),
+			'description' 	=> htmlspecialchars($this->input->post('description', true)),
+			'created_at' 	=> date('Y-m-d'),
+		];
+		$id = $this->input->post('id_kelas', true);
+		$this->kelas->update($data, $id);
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil di update</div>');
+		redirect('kelas');
 	}
 
 	public function detail($id)
 	{
-		$this->template->app('kelas/detail', 'Detail Data Kelas');
+		$data['kelas'] = $this->kelas->getById($id)->row();
+
+		$this->template->app('kelas/detail', 'Detail Data Kelas', $data);
 	}
 
-	public function delete()
+	public function delete($id)
 	{
-		# code...
+		$this->kelas->delete($id);
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil di hapus</div>');
+		redirect('kelas');
 	}
 }
 
