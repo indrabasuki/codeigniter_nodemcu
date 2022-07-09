@@ -66,7 +66,7 @@
 								<td class="text-center">
 									<a href="<?= base_url('user/detail/') . $item->id ?>" class="btn btn-sm btn-secondary"><i class="fas fa-eye"></i></a>
 									<a href="<?= base_url('user/edit/') . $item->id ?>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
-									<a onclick="confirm('Apakah anda ingin hapus data?');" href="<?= base_url('user/delete/') . $item->id ?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+									<a onclick="return confirm('Apakah anda ingin hapus data?')" href="<?= base_url('user/delete/') . $item->id ?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
 								</td>
 							</tr>
 						<?php endforeach; ?>

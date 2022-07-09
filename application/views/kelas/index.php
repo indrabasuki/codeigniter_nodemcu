@@ -52,7 +52,7 @@
 									<!-- Button trigger modal -->
 									<a href="<?= base_url('kelas/detail/') . $item->id_kelas ?>" class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="kelas detail"><i class="fas fa-eye"></i></a>
 									<a href="<?= base_url('kelas/edit/') . $item->id_kelas ?>" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
-									<a onclick="confirm('Apakah anda ingin hapus data?');" href="<?= base_url('kelas/delete/') . $item->id_kelas ?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+									<a onclick="return confirm('Apakah anda ingin hapus data?')" href="<?= base_url('kelas/delete/') . $item->id_kelas ?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
 								</td>
 							</tr>
 						<?php endforeach; ?>
