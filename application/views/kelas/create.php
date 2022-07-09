@@ -22,7 +22,7 @@
 				<div class="col-md-6">
 					<div class="form-group">
 						<label for="">Nama Kelas</label>
-						<input type="text" name="nama" class="form-control" placeholder="Nama Kelas" required>
+						<input type="text" name="name" class="form-control" placeholder="Nama Kelas" required>
 						<?= form_error('name') ?>
 					</div>
 				</div>
