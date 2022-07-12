@@ -49,6 +49,7 @@
 						<?php
 						$no = 1;
 						foreach ($member as $item) : ?>
+
 							<tr>
 								<td><?= $no++ ?></td>
 								<td><?= $item->id_member ?></td>

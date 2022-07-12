@@ -11,7 +11,7 @@
 	<link href="<?= base_url() ?>public/css/styles.css" rel="stylesheet" />
 	<link href="<?= base_url() ?>public/vendors/datatables-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
 	<link href="<?= base_url() ?>public/vendors/daterangepicker/daterangepicker.css" rel="stylesheet" />
-	<link rel="icon" type="image/x-icon" href="<?= base_url() ?>public/assets/img/favicon.png" />
+	<link rel="icon" type="image/x-icon" href="<?= base_url('public/images/logo.jpeg') ?>" width="50" class="ml-2" />
 	<link rel="stylesheet" href="<?= base_url() ?>public/vendors/fontawesome-free/css/all.min.css" />
 	<script src="<?= base_url() ?>public/vendors/feather-icons/feather.min.js"></script>
 	<script src="<?= base_url() ?>public/vendors/jquery/jquery.min.js"></script>

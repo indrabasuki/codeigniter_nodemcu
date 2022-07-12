@@ -76,7 +76,7 @@
 				<div class="col-md-6">
 					<div class="form-group">
 						<label for="">Kelas</label>
-						<select id="id_kelas" name="id_kelas" class="form-control" placeholder="Alamat" required>
+						<select id="id_kelas" name="id_kelas" class="form-control" placeholder="Kelas" required>
 							<option value="" disabled>-- Pilih Kelas --</option>
 							<?php foreach ($kelas as $item) : ?>
 								<option value="<?= $item->id_kelas ?>"><?= $item->name ?></option>
