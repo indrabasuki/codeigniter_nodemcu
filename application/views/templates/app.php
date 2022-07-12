@@ -119,7 +119,7 @@
 						</div>
 						<a class="nav-link" href="<?= base_url('activity') ?>">
 							<div class="nav-link-icon"><i data-feather="activity"></i></div>
-							Aktivtias
+							Aktivitas
 						</a>
 
 						<a class="nav-link" href="<?= base_url('report') ?>">

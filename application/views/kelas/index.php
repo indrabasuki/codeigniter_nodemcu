@@ -45,7 +45,7 @@
 						foreach ($kelas as $item) : ?>
 							<tr>
 								<td><?= $no++ ?></td>
-								<td><?= $item->name ?></td>
+								<td><?= $item->kelas_name ?></td>
 								<td><?= $item->description ?></td>
 
 								<td class="text-center">

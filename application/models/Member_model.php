@@ -22,7 +22,10 @@ class Member_model extends CI_Model
 
 	public function getAll()
 	{
-		return $this->db->get($this->table);
+		$this->db->select('*');
+		$this->db->from($this->table);
+		$this->db->join('kelas', 'member.kelas_id=kelas.id_kelas');
+		return $this->db->get();
 	}
 
 	public function create($data)

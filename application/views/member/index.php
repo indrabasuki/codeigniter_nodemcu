@@ -57,7 +57,7 @@
 								<td><?= $item->name ?></td>
 								<td><?= $item->telepon ?></td>
 								<td><?= $item->address ?></td>
-								<td><?= $item->kelas_id ?></td>
+								<td><?= $item->kelas_name ?></td>
 								<td><?= $item->created_at ?></td>
 
 								<td class="text-center">

@@ -20,6 +20,7 @@ class Member extends CI_Controller
 	public function index()
 	{
 		$data['member'] = $this->member->getAll()->result();
+
 		$this->template->app('member/index', 'Data Anggota', $data);
 	}
 
