@@ -82,7 +82,7 @@
 						<select id="id_kelas" name="id_kelas" class="form-control" placeholder="Kelas" required>
 							<option value="" disabled>-- Pilih Kelas --</option>
 							<?php foreach ($kelas as $item) : ?>
-								<option value="<?= $item->id_kelas ?>"><?= $item->name ?></option>
+								<option value="<?= $item->id_kelas ?>"><?= $item->kelas_name ?></option>
 							<?php endforeach; ?>
 						</select>
 					</div>
