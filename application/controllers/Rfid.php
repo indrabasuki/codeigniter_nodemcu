@@ -12,27 +12,42 @@ class Rfid extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('Member_model');
+		$this->load->model('Activity_model');
 	}
-
-	public function index()
+	public function get_id()
 	{
-	}
+		if (isset($_GET['id_device']) && isset($_GET['rfid'])) {
+			//echo "OK";
 
-	public function create()
-	{
-		$id = $this->input->get('id_device');
-		var_dump($id);
-		die;
-	}
+			$status = '';
+			$id_device = $this->input->get('id_device');
+			$rfid = $this->input->get('rfid');
 
-	public function edit()
-	{
-		# code...
-	}
+			$dataRfid = array('id_device' => $id_device, 'uid_rfid' => $rfid, 'waktu' => time());
 
-	public function delete()
-	{
-		# code...
+			$data_anggota = $this->Member_model->get_rfid($dataRfid['uid_rfid']);
+			$showActivity = $this->Activity_model->get_id_anggota($data_anggota->id_member);
+			if (!$showActivity) {
+				$in = 1;
+				$status = 'In Gate';
+			} else {
+				$out = 1;
+				$status = 'Out Gate';
+			}
+			$data = [
+				'member_id' => $data_anggota->id_member,
+				'in' => $in,
+				'out' => $out,
+				'date' => date('Y-m-d'),
+				'time' => time(),
+				'activity_description' => $status,
+			];
+
+			$this->db->insert('activity', $data);
+		} else {
+			echo "Variabel data tidak terdefinisi";
+		}
 	}
 }
 

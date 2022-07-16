@@ -66,6 +66,11 @@ class Member_model extends CI_Model
 		$kodetampil = "GE_" . $batas;
 		return $kodetampil;
 	}
+
+	public function get_rfid($rfid)
+	{
+		return $this->db->get_where($this->table, ['id_card' => $rfid])->row();
+	}
 }
 
 /* End of file: Member_model.php */

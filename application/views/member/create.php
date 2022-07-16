@@ -34,6 +34,9 @@
 						<input type="number" name="id_device" class="form-control" placeholder="ID Device" required>
 					</div>
 				</div>
+				<div class="col-md-6">
+					<button class="btn btn-primary" id="tempel">Tempel RFID Card </button>
+				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-6">
@@ -99,5 +102,26 @@
 <script>
 	$(document).ready(function() {
 		$('#data_member').DataTable();
+
+		$('#tempel').click(function() {
+
+
+			alert('Silahkan Tempel RFID Card Pada Mesin RFID');
+			show_id();
+
+		});
 	});
+
+	function show_id() {
+		$.ajax({
+			type: 'ajax',
+			url: '<?php echo base_url('rfid/get_id') ?>',
+			async: true,
+			dataType: 'json',
+			success: function(data) {
+				alert(data);
+			}
+
+		});
+	}
 </script>

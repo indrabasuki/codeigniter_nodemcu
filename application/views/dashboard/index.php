@@ -25,7 +25,7 @@
 					<div class="d-flex justify-content-between align-items-center">
 						<div class="mr-3">
 							<div class="text-black-75 small">Total Aktivitas Hari ini</div>
-							<div class="text-lg font-weight-bold">24</div>
+							<div class="text-lg font-weight-bold"><?= $this->db->get_where('activity', ['date' => date('Y-m-d')])->num_rows() ?></div>
 						</div>
 						<i class="feather-xl text-black-50" data-feather="check-square"></i>
 					</div>
@@ -42,7 +42,7 @@
 					<div class="d-flex justify-content-between align-items-center">
 						<div class="mr-3">
 							<div class="text-black-75 small">Data Anggota</div>
-							<div class="text-lg font-weight-bold">12</div>
+							<div class="text-lg font-weight-bold"><?= $this->db->get('member')->num_rows() ?></div>
 						</div>
 						<i class="feather-xl text-black-50" data-feather="user"></i>
 					</div>
@@ -82,6 +82,8 @@
 						<tr>
 							<th>#</th>
 							<th>Nama</th>
+							<th>Kelas</th>
+							<th>ID Card</th>
 							<th>Waktu In Gate</th>
 							<th>Waktu Out Gate</th>
 							<th>Status</th>
@@ -90,14 +92,32 @@
 					</thead>
 
 					<tbody>
-						<tr>
-							<td>1</td>
-							<td>Indra Basuki</td>
-							<td>08.00 WIB</td>
-							<td>09.00 WIB</td>
-							<td class="text-center"><span class="badge badge-success">Success</span></td>
-							<td class="text-center"><a href="" class="btn btn-sm btn-secondary"><i class="fas fa-eye"></i></a></td>
-						</tr>
+						<?php
+						$no = 1;
+						foreach ($activity as $item) :
+						?>
+							<tr>
+								<td><?= $no++ ?></td>
+								<td><?= $item->name ?></td>
+								<td><?= $item->kelas_name ?></td>
+								<td><?= $item->id_card ?></td>
+								<?php if ($item->in == 1) : ?>
+									<td><?= date("Y-m-d H:i:s", substr($item->time, 0, 10));  ?></td>
+								<?php else : ?>
+									<td>..</td>
+								<?php endif; ?>
+								<?php if ($item->out == 1) : ?>
+									<td><?= date("Y-m-d H:i:s", substr($item->time, 0, 10));  ?></td>
+								<?php else : ?>
+									<td>..</td>
+								<?php endif; ?> <td><?= $item->activity_description ?></td>
+								<td><a href="#" class="btn btn-sm btn-success">Lihat <i class="fas fa-eye"></i></a></td>
+							</tr>
+
+
+
+						<?php endforeach; ?>
+
 					</tbody>
 				</table>
 			</div>

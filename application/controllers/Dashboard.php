@@ -13,11 +13,13 @@ class Dashboard extends CI_Controller
 	{
 		parent::__construct();
 		is_logged_in();
+		$this->load->model('Activity_model');
 	}
 
 	public function index()
 	{
-		$this->template->app('dashboard/index', 'Dashboard');
+		$data['activity'] = $this->Activity_model->getAll()->result();
+		$this->template->app('dashboard/index', 'Dashboard', $data);
 	}
 }
 
