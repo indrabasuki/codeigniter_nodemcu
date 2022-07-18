@@ -36,38 +36,6 @@
 		</form>
 		<!-- Navbar Items-->
 		<ul class="navbar-nav align-items-center ml-auto">
-			<!-- Documentation Dropdown-->
-			<li class="nav-item dropdown no-caret d-none d-sm-block mr-3">
-				<a class="nav-link dropdown-toggle" id="navbarDropdownDocs" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<div class="font-weight-500">Documentation</div>
-					<i class="fas fa-chevron-right dropdown-arrow"></i>
-				</a>
-				<div class="dropdown-menu dropdown-menu-right py-0 mr-sm-n15 mr-lg-0 o-hidden animated--fade-in-up" aria-labelledby="navbarDropdownDocs">
-					<a class="dropdown-item py-3" href="https://docs.startbootstrap.com/sb-admin-pro" target="_blank">
-						<div class="icon-stack bg-primary-soft text-primary mr-4"><i data-feather="book"></i></div>
-						<div>
-							<div class="small text-gray-500">Documentation</div>
-							Usage instructions and reference
-						</div>
-					</a>
-					<div class="dropdown-divider m-0"></div>
-					<a class="dropdown-item py-3" href="https://docs.startbootstrap.com/sb-admin-pro/components" target="_blank">
-						<div class="icon-stack bg-primary-soft text-primary mr-4"><i data-feather="code"></i></div>
-						<div>
-							<div class="small text-gray-500">Components</div>
-							Code snippets and reference
-						</div>
-					</a>
-					<div class="dropdown-divider m-0"></div>
-					<a class="dropdown-item py-3" href="https://docs.startbootstrap.com/sb-admin-pro/changelog" target="_blank">
-						<div class="icon-stack bg-primary-soft text-primary mr-4"><i data-feather="file-text"></i></div>
-						<div>
-							<div class="small text-gray-500">Changelog</div>
-							Updates and changes
-						</div>
-					</a>
-				</div>
-			</li>
 
 			<!-- User Dropdown-->
 			<li class="nav-item dropdown no-caret mr-3 mr-lg-0 dropdown-user">
@@ -105,22 +73,24 @@
 							<div class="nav-link-icon"><i data-feather="home"></i></div>
 							Dashboard
 						</a>
-						<a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseFlows" aria-expanded="false" aria-controls="collapseFlows">
-							<div class="nav-link-icon"><i data-feather="folder"></i></div>
-							Master Data
-							<div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-						</a>
-						<div class="collapse" id="collapseFlows" data-parent="#accordionSidenav">
-							<nav class="sidenav-menu-nested nav">
-								<a class="nav-link" href="<?= base_url('member') ?>">Data Anggota</a>
-								<a class="nav-link" href="<?= base_url('user') ?>">Data Pengguna</a>
-								<a class="nav-link" href="<?= base_url('kelas') ?>">Data Kelas</a>
-							</nav>
-						</div>
-						<a class="nav-link" href="<?= base_url('activity') ?>">
-							<div class="nav-link-icon"><i data-feather="activity"></i></div>
-							Aktivitas
-						</a>
+						<?php if ($this->session->userdata('role_id') == 1) : ?>
+							<a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseFlows" aria-expanded="false" aria-controls="collapseFlows">
+								<div class="nav-link-icon"><i data-feather="folder"></i></div>
+								Master Data
+								<div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+							</a>
+							<div class="collapse" id="collapseFlows" data-parent="#accordionSidenav">
+								<nav class="sidenav-menu-nested nav">
+									<a class="nav-link" href="<?= base_url('member') ?>">Data Anggota</a>
+									<a class="nav-link" href="<?= base_url('user') ?>">Data Pengguna</a>
+									<a class="nav-link" href="<?= base_url('kelas') ?>">Data Kelas</a>
+								</nav>
+							</div>
+							<a class="nav-link" href="<?= base_url('activity') ?>">
+								<div class="nav-link-icon"><i data-feather="activity"></i></div>
+								Aktivitas
+							</a>
+						<?php endif ?>
 
 						<a class="nav-link" href="<?= base_url('report') ?>">
 							<div class="nav-link-icon"><i data-feather="printer"></i></div>

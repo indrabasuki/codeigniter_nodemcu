@@ -20,7 +20,7 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
-						<label for="">Nama Kelas : <?= $kelas->name ?></label>
+						<label for="">Nama Kelas : <?= $kelas->kelas_name ?></label>
 
 					</div>
 				</div>

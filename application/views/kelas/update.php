@@ -23,7 +23,7 @@
 				<div class="col-md-6">
 					<div class="form-group">
 						<label for="">Nama Kelas</label>
-						<input type="text" name="name" class="form-control" placeholder="Nama Kelas" required value="<?= $kelas->name ?>">
+						<input type="text" name="name" class="form-control" placeholder="Nama Kelas" required value="<?= $kelas->kelas_name ?>">
 
 					</div>
 				</div>

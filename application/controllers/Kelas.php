@@ -33,7 +33,7 @@ class Kelas extends CI_Controller
 			$this->template->app('kelas/create', 'Tambah Data Kelas');
 		} else {
 			$data = [
-				'name' 			=> htmlspecialchars($this->input->post('name', true)),
+				'kelas_name' 			=> htmlspecialchars($this->input->post('name', true)),
 				'description' 	=> htmlspecialchars($this->input->post('description', true)),
 				'created_at' 	=> date('Y-m-d'),
 			];
@@ -53,7 +53,7 @@ class Kelas extends CI_Controller
 	public function update()
 	{
 		$data = [
-			'name' 			=> htmlspecialchars($this->input->post('name', true)),
+			'kelas_name' 	=> htmlspecialchars($this->input->post('name', true)),
 			'description' 	=> htmlspecialchars($this->input->post('description', true)),
 			'created_at' 	=> date('Y-m-d'),
 		];

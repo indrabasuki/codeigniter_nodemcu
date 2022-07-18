@@ -34,6 +34,9 @@
 						<input type="number" value="<?= $member->id_device ?>" name="id_device" class="form-control" placeholder="ID Device" required>
 					</div>
 				</div>
+				<div class="col-md-6">
+					<button class="btn btn-primary" id="tempel">Tempel RFID Card </button>
+				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-6">
@@ -75,15 +78,28 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
+						<label for="">Role</label>
+						<select id="staff" name="is_staff" class="form-control">
+							<option value="" disabled>-- Pilih Role --</option>
+							<option value="1">Staff</option>
+							<option value="0">Murid</option>
+
+						</select>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group" id="kelas">
 						<label for="">Kelas</label>
-						<select id="id_kelas" name="id_kelas" class="form-control" placeholder="Alamat" required>
+						<select name="id_kelas" class="form-control" placeholder="Kelas" required>
 							<option value="" disabled>-- Pilih Kelas --</option>
 							<?php foreach ($kelas as $item) : ?>
-								<option value="<?= $item->kelas_id ?>"><?= $item->name ?></option>
+								<option value="<?= $item->id_kelas ?>"><?= $item->kelas_name ?></option>
 							<?php endforeach; ?>
 						</select>
 					</div>
 				</div>
+
+
 			</div>
 
 		</div>
@@ -95,3 +111,40 @@
 	</div>
 	<?= form_close() ?>
 </div>
+
+<script>
+	$(document).ready(function() {
+		$('#data_member').DataTable();
+		$('#kelas').hide();
+
+		$('#staff').on('change', function() {
+			if (this.value == 0) {
+				$('#kelas').show();
+			} else {
+				$('#kelas').hide();
+
+			}
+		});
+
+		$('#tempel').click(function() {
+
+
+			alert('Silahkan Tempel RFID Card Pada Mesin RFID');
+			show_id();
+
+		});
+	});
+
+	function show_id() {
+		$.ajax({
+			type: 'ajax',
+			url: '<?php echo base_url('rfid/get_id') ?>',
+			async: true,
+			dataType: 'json',
+			success: function(data) {
+				alert(data);
+			}
+
+		});
+	}
+</script>

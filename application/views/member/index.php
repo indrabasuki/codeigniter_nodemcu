@@ -56,7 +56,7 @@
 								<td><?= $item->id_card ?></td>
 								<td><?= $item->name ?></td>
 								<td><?= $item->telepon ?></td>
-								<td><?= $item->address ?></td>
+								<td width='20%'><?= $item->address ?></td>
 								<?php if ($item->is_staff == 1) : ?>
 									<td><span class="btn btn-sm btn-block btn-primary">Sebagai Staff</span></td>
 
