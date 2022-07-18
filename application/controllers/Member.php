@@ -38,6 +38,7 @@ class Member extends CI_Controller
 				'id_member' 			=> htmlspecialchars($this->input->post('id_member', true)),
 				'id_card' 				=> htmlspecialchars($this->input->post('id_card', true)),
 				'id_device' 			=> htmlspecialchars($this->input->post('id_device', true)),
+				'is_staff' 			=> htmlspecialchars($this->input->post('is_staff', true)),
 				'name' 			=> htmlspecialchars($this->input->post('name', true)),
 				'telepon' 			=> htmlspecialchars($this->input->post('telepon', true)),
 				'kelas_id' 			=> htmlspecialchars($this->input->post('id_kelas', true)),

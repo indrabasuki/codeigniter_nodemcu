@@ -57,7 +57,15 @@
 								<td><?= $item->name ?></td>
 								<td><?= $item->telepon ?></td>
 								<td><?= $item->address ?></td>
-								<td><?= $item->kelas_name ?></td>
+								<?php if ($item->is_staff == 1) : ?>
+									<td><span class="btn btn-sm btn-block btn-primary">Sebagai Staff</span></td>
+
+								<?php else : ?>
+									<td><?= $item->kelas_name ?> <br>
+										<span class="btn btn-sm btn-block btn-success">Murid</span>
+									</td>
+
+								<?php endif ?>
 								<td><?= $item->created_at ?></td>
 
 								<td class="text-center">

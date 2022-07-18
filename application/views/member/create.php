@@ -78,8 +78,19 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
+						<label for="">Role</label>
+						<select id="staff" name="is_staff" class="form-control">
+							<option value="" disabled>-- Pilih Role --</option>
+							<option value="1">Staff</option>
+							<option value="0">Murid</option>
+
+						</select>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group" id="kelas">
 						<label for="">Kelas</label>
-						<select id="id_kelas" name="id_kelas" class="form-control" placeholder="Kelas" required>
+						<select name="id_kelas" class="form-control" placeholder="Kelas" required>
 							<option value="" disabled>-- Pilih Kelas --</option>
 							<?php foreach ($kelas as $item) : ?>
 								<option value="<?= $item->id_kelas ?>"><?= $item->kelas_name ?></option>
@@ -87,6 +98,8 @@
 						</select>
 					</div>
 				</div>
+
+
 			</div>
 
 		</div>
@@ -102,6 +115,16 @@
 <script>
 	$(document).ready(function() {
 		$('#data_member').DataTable();
+		$('#kelas').hide();
+
+		$('#staff').on('change', function() {
+			if (this.value == 0) {
+				$('#kelas').show();
+			} else {
+				$('#kelas').hide();
+
+			}
+		});
 
 		$('#tempel').click(function() {
 

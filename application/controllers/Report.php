@@ -13,6 +13,7 @@ class Report extends CI_Controller
 	{
 		parent::__construct();
 		is_logged_in();
+		$this->load->model('Activity_model');
 	}
 
 	public function index()
@@ -25,8 +26,13 @@ class Report extends CI_Controller
 		$start = $this->input->post('tanggal_awal');
 		$end = $this->input->post('tanggal_akhir');
 
-		$this->load->library('pdf');
-		$this->pdf->setPaper('A4', 'potrait');
+		$query = $this->Activity_model->report($start, $end)->result();
+
+		$data['report'] = $query;
+		if ($query) {
+
+			$this->load->view('report/cetak', $data);
+		}
 	}
 }
 

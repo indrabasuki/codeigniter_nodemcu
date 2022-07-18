@@ -18,8 +18,6 @@ class Rfid extends CI_Controller
 	public function get_id()
 	{
 		if (isset($_GET['id_device']) && isset($_GET['rfid'])) {
-			//echo "OK";
-
 			$status = '';
 			$id_device = $this->input->get('id_device');
 			$rfid = $this->input->get('rfid');
@@ -30,8 +28,10 @@ class Rfid extends CI_Controller
 			$showActivity = $this->Activity_model->get_id_anggota($data_anggota->id_member);
 			if (!$showActivity) {
 				$in = 1;
+				$out = 0;
 				$status = 'In Gate';
 			} else {
+				$in = 0;
 				$out = 1;
 				$status = 'Out Gate';
 			}
