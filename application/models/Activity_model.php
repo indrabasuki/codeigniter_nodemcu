@@ -29,12 +29,7 @@ class Activity_model extends CI_Model
 	public function get_id_anggota($id)
 	{
 
-		$this->db->sqelect('*');
-		$this->db->from('activity');
-		$this->db->where('member_id', $id);
-		$this->db->last_query();
-
-		return $this->db->get();
+		return $this->db->query("SELECT * FROM `activity` WHERE member_id='$id' ORDER BY id_activity DESC LIMIT 1");
 	}
 
 	public function report($start, $end)

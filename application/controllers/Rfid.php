@@ -33,9 +33,16 @@ class Rfid extends CI_Controller
 				$out = 0;
 				$status = 'In Gate';
 			} else {
-				$in = 0;
-				$out = 1;
-				$status = 'Out Gate';
+				if ($showActivity->in == 1) {
+					$in = 0;
+					$out = 1;
+					$status = 'Out Gate';
+				}
+				if ($showActivity->out == 1) {
+					$in = 1;
+					$out = 0;
+					$status = 'In Gate';
+				}
 			}
 			$data = [
 				'member_id' => $data_anggota->id_member,
