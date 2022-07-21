@@ -25,7 +25,9 @@ class Rfid extends CI_Controller
 			$dataRfid = array('id_device' => $id_device, 'uid_rfid' => $rfid, 'waktu' => time());
 
 			$data_anggota = $this->Member_model->get_rfid($dataRfid['uid_rfid']);
-			$showActivity = $this->Activity_model->get_id_anggota($data_anggota->id_member);
+			$showActivity = $this->Activity_model->get_id_anggota($data_anggota->id_member)->row();
+
+
 			if (!$showActivity) {
 				$in = 1;
 				$out = 0;
